@@ -50,15 +50,15 @@ var articles =
      var heading = data.heading;
      var date = data.date;
      var content = data.content;
-     html template ='
+     var htmltemplate ='
      <html>
-    <head>
-    <tite>${title}</tite>
-    <meta name="viewport" content="width=device-width, intial-scale=1"/>
+     <head>
+     <tite>${title}</tite>
+     <meta name="viewport" content="width=device-width, intial-scale=1"/>
      <link href="/ui/style.css" rel="stylesheet" />
-    </head>
+     </head>
             
-    <body>
+     <body>
         <div class="container">
             <div>
             <a href="/">home</a>
@@ -75,10 +75,8 @@ var articles =
         </div>
         
     </body>
-    
-    
-</html>
-     ;
+    </html>
+     ';
      return htmltempelate;
  }
 app.get('/:articlename', function (req, res) {
@@ -86,15 +84,6 @@ app.get('/:articlename', function (req, res) {
 });
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-
-
-app.get('/article-two', function (req, res) {
-     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
- res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
 
 app.get('/ui/style.css', function (req, res) {
