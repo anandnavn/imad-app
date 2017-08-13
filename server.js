@@ -77,7 +77,7 @@ var articles =
     </body>
     </html>
      ';
-     return htmltempelate;
+     return htmltemplate;
  }
 app.get('/:articlename', function (req, res) {
     res.send(createtempelate(articles[articlename]));
