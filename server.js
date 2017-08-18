@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles = 
+/*var articles = 
     { 
            'article-one':
         { 
@@ -78,7 +78,7 @@ var articles =
     </html>
      ';
      return htmltemplate;
- }
+ } */
 app.get('/:articlename', function (req, res) {
     res.send(createtempelate(articles[articlename]));
 });
