@@ -78,7 +78,26 @@ app.use(morgan('combined'));
     </html>
      ';
      return htmltemplate;
+     
  } */
+ 
+    var counter = 0;
+    app.get('/counter', function(req,res){
+       counter = counter +1;
+       res.send(counter.tostring());
+    });
+    
+    var names =[];
+    app.get('/submit-name', function(req.res){
+        //submit-name?name-xxx
+        //get the name from the request
+        var name = req.query.name;
+        
+        names.push(name);
+        //JSON:javascript object natationn
+        res.send(JSON.stringify(names));
+    });
+    
 app.get('/:articlename', function (req, res) {
     res.send(createtempelate(articles[articlename]));
 });
