@@ -1,4 +1,4 @@
-console.log('Loaded!');
+
  var button = document.getElementById('counter');
 
 button.onclick = function () {
@@ -15,13 +15,13 @@ button.onclick = function () {
               var span = document.getElementById('count');
               span.innerHTML = counter.toString();
              }
-         }
+         
      } 
      //not done yet
 };
 
     //Make the request
-    request.open('GET','http://u1629076.hasura-app.io/counter' , true);
+    request.open('GET','http://u1629076.imad.hasura-app.io//counter' , true);
     request.send(null);
 };
  
@@ -34,16 +34,16 @@ button.onclick = function () {
       
       //capture a list of name and render it as a list
       request.onreadystatechange = function () {
-          if (request.readystate === XMLHttpRequest.DONE)
+          if (request.readyState === XMLHttpRequest.DONE)
            //take some action
            if(request.status ===200) {
                
                //capture a list of names and render it as a list
                var names = request.responseText;
                names = JSON.parse(names);
-               var list=''
+               var list='';
             for (var i =0; i<names.length; i++) {
-          list == '<li>' + names[i] + '<li>';
+          list += '<li>' + names[i] + '</li>';
       }
        var ul =  document.getElementById('namelist');
        ul.innerHTML = list;
@@ -53,6 +53,6 @@ button.onclick = function () {
   
   //make request 
    var nameInput = document.getElementById('name');
-   var name = nameInput.value;
+   var names = nameInput.value;
     request.open('GET','http://u1629076.imad.hasura-app.io/submit-name?name' +name ,true);
     request.send(null);
